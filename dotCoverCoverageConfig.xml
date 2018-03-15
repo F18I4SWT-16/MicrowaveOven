@@ -8,21 +8,8 @@
   <ReportType>HTML<!-- [HTML|JSON|XML|NDependXML]. A type of the report. XML by default. --></ReportType>
   <InheritConsole><!-- [True|False] Lets the application being analysed to inherit dotCover console. True by default. --> </InheritConsole>
   
-  <Filters>
-    <ExcludeFilters>
-      <FilterEntry>
-        <ModuleMask>MicrowaveOvenClasses</ModuleMask>
-        <ClassMask>MicrowaveOvenClasses.Boundary.Output</ClassMask>
-        <FunctionMask>*</FunctionMask>
-      </FilterEntry>
-      <FilterEntry>
-        <ModuleMask>Microwave.Test.Unit</ModuleMask>
-        <ClassMask>Microwave.Test.Unit.*</ClassMask>
-        <FunctionMask>*</FunctionMask>
-      </FilterEntry>
-    </ExcludeFilters>
-  </Filters>
   <!-- Coverage filters. It's possible to use asterisks as wildcard symbols.
+  <Filters>
     <IncludeFilters>
       <FilterEntry>
         <ModuleMask> Module mask. </ModuleMask>
@@ -30,7 +17,13 @@
         <FunctionMask> Function mask. </FunctionMask>
       </FilterEntry>
     </IncludeFilters>
-    -->
+    <ExcludeFilters>
+      <FilterEntry>...</FilterEntry>
+      <FilterEntry>...</FilterEntry>
+      <FilterEntry>...</FilterEntry>
+    </ExcludeFilters>
+  </Filters>
+  -->
   <!-- Attribute filters. It's possible to use asterisks as wildcard symbols.
   <AttributeFilters>
     <AttributeFilterEntry>...</AttributeFilterEntry>
