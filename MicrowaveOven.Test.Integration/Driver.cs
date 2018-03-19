@@ -43,6 +43,7 @@ namespace MicrowaveOven.Test.Integration
         {
             powerButton.Press();
 
+            UI.OnPowerPressed(powerButton, EventArgs.Empty);
 
             _display.Received().ShowPower();
             //Assert.That(UI.OnPowerPressed(powerButton.Pressed), _display.Received())
