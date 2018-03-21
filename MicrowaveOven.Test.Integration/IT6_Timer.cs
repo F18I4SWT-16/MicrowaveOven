@@ -56,24 +56,27 @@ namespace MicrowaveOven.Test.Integration
             _powerButton.Press();
             _timeButton.Press();
             _startCancelButton.Press();
-            
+
+            Thread.Sleep(1000);
+
             //Assert
-            _output.Received().OutputLine($"Display shows: 01:00");          
+            _output.Received().OutputLine($"Display shows: 00:59");          
         }
 
-        //[Test]
-        //public void Timer_CookingIsDone_ClearDisplay()
-        //{
-        //    //Act
-        //    _powerButton.Press();
-        //    _timeButton.Press();
-        //    _startCancelButton.Press();
 
-        //    Thread.Sleep(60000);
+        [Test]
+        public void Timer_CookingIsDone_ClearDisplay()
+        {
+            //Act
+            _powerButton.Press();
+            _timeButton.Press();
+            _startCancelButton.Press();
 
-        //    //Assert
-        //    _output.Received().OutputLine($"Display cleared");
-        //}
+            Thread.Sleep(60100); //Vent i 60.1s
+
+            //Assert
+            _output.Received().OutputLine($"Display cleared");
+        }
 
     }
 }
