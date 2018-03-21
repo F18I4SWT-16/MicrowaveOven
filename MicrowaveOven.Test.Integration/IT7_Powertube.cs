@@ -49,15 +49,13 @@ namespace MicrowaveOven.Test.Integration
         [Test]
         public void Powertube_StartCooking_PowertubeOn()
         {
-            //Arrange
-            double a = (50*100)/700;
             //Act
             _powerButton.Press();
             _timeButton.Press();
             _startCancelButton.Press();
             
             //Assert
-            _output.Received().OutputLine($"PowerTube works with " + a + " %");
+            _output.Received().OutputLine($"PowerTube works with 7 %");
         }
         [Test]
         public void Powertube_StopCooking_PowertubeOff()

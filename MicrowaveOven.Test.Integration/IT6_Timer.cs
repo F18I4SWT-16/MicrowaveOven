@@ -57,7 +57,7 @@ namespace MicrowaveOven.Test.Integration
             _timeButton.Press();
             _startCancelButton.Press();
 
-            Thread.Sleep(1000);
+            Thread.Sleep(1100);
 
             //Assert
             _output.Received().OutputLine($"Display shows: 00:59");          
