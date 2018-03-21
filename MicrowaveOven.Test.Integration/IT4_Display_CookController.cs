@@ -11,6 +11,7 @@ using NUnit.Framework;
 
 namespace MicrowaveOven.Test.Integration
 {
+    [TestFixture]
     class IT4_Display_CookController
     {
         private Button _powerButton;

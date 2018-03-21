@@ -13,6 +13,7 @@ using Timer = MicrowaveOvenClasses.Boundary.Timer;
 
 namespace MicrowaveOven.Test.Integration
 {
+    [TestFixture]
     class IT6_Timer
     {
         private Button _powerButton;
