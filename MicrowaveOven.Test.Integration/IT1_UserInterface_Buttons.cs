@@ -74,8 +74,7 @@ namespace MicrowaveOven.Test.Integration
             _display.Received().ShowTime(expected, 0);
         }
         #endregion
-
-
+        
 
         #region OnStartCancel
         [Test]

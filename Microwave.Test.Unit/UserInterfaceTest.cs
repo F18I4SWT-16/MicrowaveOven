@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using MicrowaveOvenClasses.Controllers;
 using MicrowaveOvenClasses.Interfaces;
 using NSubstitute;
@@ -256,6 +257,7 @@ namespace Microwave.Test.Unit
             startCancelButton.Pressed += Raise.EventWith(this, EventArgs.Empty);
             // Now in cooking
 
+            uut.CookingIsDone(); //Added so unit test, tests what is stated.
             display.Received(1).Clear();
         }
 
