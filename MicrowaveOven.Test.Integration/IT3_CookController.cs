@@ -38,9 +38,12 @@ namespace MicrowaveOven.Test.Integration
             _door = new Door();
             _light = Substitute.For<ILight>();
             _display = Substitute.For<IDisplay>();
-            _uut = new CookController(_timer,_display,_powerTube);
+
+            _uut = new CookController(_timer, _display, _powerTube);
 
             _userInterface = new UserInterface(_powerButton, _timeButton, _startCancelButton, _door, _display, _light, _uut);
+
+            _uut.UI = _userInterface;
         }
 
         [Test]
@@ -90,21 +93,34 @@ namespace MicrowaveOven.Test.Integration
             _powerTube.Received().TurnOff();
         }
 
-        //[Test]
-        //public void Cookcontroller_CookingIsDone_DisplayClear()
-        //{
-        //    //Act
-        //    _powerButton.Press();
-        //    _timeButton.Press();
-        //    _startCancelButton.Press();
+        [Test]
+        public void CookController_CookingIsDone_DisplayClear()
+        {
+            //Act
+            _powerButton.Press();
+            _timeButton.Press();
+            _startCancelButton.Press();
 
-        //    _startCancelButton.Press();
-        //    //_uut.OnTimerExpired(this, EventArgs.Empty);
-        //    //_timer.Expired += Raise.EventWith(this, EventArgs.Empty);
+            _timer.Expired += Raise.EventWith(this, EventArgs.Empty);
 
-        //    //Assert
-        //    _display.Received().Clear();
-        //}
 
+            //Assert
+            _display.Received().Clear();
+        }
+
+        [Test]
+        public void CookController_CookingIsDone_LightOff()
+        {
+            //Act
+            _powerButton.Press();
+            _timeButton.Press();
+            _startCancelButton.Press();
+
+            _timer.Expired += Raise.EventWith(this, EventArgs.Empty);
+
+
+            //Assert
+            _light.Received().TurnOff();
+        }
     }
 }
