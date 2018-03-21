@@ -22,7 +22,8 @@ namespace Microwave.Test.Unit
         [Test]
         public void TurnOn_WasOff_CorrectOutput()
         {
-            uut.TurnOn(50);
+            uut.TurnOn(350); //Power er blevet sat op fra 50 til 350 watt for at ramme de 50 %
+            
             output.Received().OutputLine(Arg.Is<string>(str => str.Contains("50 %")));
         }
 
