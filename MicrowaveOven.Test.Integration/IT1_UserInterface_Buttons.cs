@@ -12,7 +12,7 @@ using NUnit.Framework;
 namespace MicrowaveOven.Test.Integration
 {
     [TestFixture]
-    public class IT1_UserInterface
+    public class IT1_UserInterface_Buttons
     {
         private Button _powerButton;
         private Button _timeButton;
@@ -54,7 +54,10 @@ namespace MicrowaveOven.Test.Integration
             //Assert
             _display.Received().ShowPower(expected);
         }
+        #endregion
 
+
+        #region TimeButton
         [TestCase(1, 1)]
         [TestCase(50, 50)]
         [TestCase(100, 100)]
@@ -71,6 +74,8 @@ namespace MicrowaveOven.Test.Integration
             _display.Received().ShowTime(expected, 0);
         }
         #endregion
+
+
 
         #region OnStartCancel
         [Test]
@@ -107,9 +112,9 @@ namespace MicrowaveOven.Test.Integration
             _light.Received().TurnOn();
         }
 
-        /*
+        
         [Test]
-        public void UserInterfaceTime_OnStartCancelPressed_DisplayClear()
+        public void UserInterfaceTime_OnStartCancelPressed_DisplayDidNotClear()
         {
             //Act
             _powerButton.Press();
@@ -117,9 +122,9 @@ namespace MicrowaveOven.Test.Integration
             _startCancelButton.Press();
 
             //Assert
-            _display.Received().Clear();
+            _display.DidNotReceive().Clear();
         }
-        */
+        
 
         [Test]
         public void UserInterfaceTime_OnStartCancelPressed_StartCooking()
