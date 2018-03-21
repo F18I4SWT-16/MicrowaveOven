@@ -26,6 +26,7 @@ namespace SimpleApplication
             var powerTube = new PowerTube(output);
             var cookController = new CookController(timer, display, powerTube);
             var UI = new UserInterface(powerButton, timeButton, startCancelButton, door, display, light, cookController);
+            cookController.UI = UI;
 
             // Simulate user activities
             door.Open();
@@ -35,8 +36,11 @@ namespace SimpleApplication
             powerButton.Press();
             timeButton.Press();
             startCancelButton.Press();
-            Thread.Sleep(1000);
-            
+            Thread.Sleep(61000);
+            door.Open();
+            door.Close();
+
+            //Thread.Sleep(2000);
             // Wait while the classes, including the timer, do their job
             System.Console.WriteLine("Tast enter når applikationen skal afsluttes");
             System.Console.ReadLine();
