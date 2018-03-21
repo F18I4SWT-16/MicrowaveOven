@@ -12,7 +12,7 @@ using NUnit.Framework;
 namespace MicrowaveOven.Test.Integration
 {
     [TestFixture]
-    class IT7_Powertube
+    class IT8_Output
     {
         private Button _powerButton;
         private Button _timeButton;
@@ -24,7 +24,7 @@ namespace MicrowaveOven.Test.Integration
         private UserInterface _userInterface;
         private Timer _timer;
         private PowerTube _uut;
-        private IOutput _output;
+        private Output _output;
 
         [SetUp]
         public void SetUp()
@@ -34,7 +34,7 @@ namespace MicrowaveOven.Test.Integration
             _startCancelButton = new Button();
 
             _timer = new Timer();
-            _output = Substitute.For<IOutput>();
+            _output = new Output();
             _uut = new PowerTube(_output);
             _door = new Door();
             _light = new Light(_output);
@@ -47,32 +47,17 @@ namespace MicrowaveOven.Test.Integration
         }
 
         [Test]
-        public void Powertube_StartCooking_PowertubeOn()
-        {
-            //Arrange
-            double a = (50*100)/700;
-            //Act
-            _powerButton.Press();
-            _timeButton.Press();
-            _startCancelButton.Press();
-            
-            //Assert
-            _output.Received().OutputLine($"PowerTube works with " + a + " %");
-        }
-        [Test]
-        public void Powertube_StopCooking_PowertubeOff()
+        public void Output_()
         {
             //Act
-            _powerButton.Press();
-            _timeButton.Press();
-            _startCancelButton.Press();
+            _door.Open();
 
-            _startCancelButton.Press();
+            //_powerButton.Press();
+            //_timeButton.Press();
+            //_startCancelButton.Press();
 
-            //Assert
-            _output.Received().OutputLine($"PowerTube turned off");
+            //Assert 
+            //Assert.That(_door.Open(), results);
         }
-
-
     }
 }
