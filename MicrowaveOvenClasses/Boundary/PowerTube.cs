@@ -17,7 +17,7 @@ namespace MicrowaveOvenClasses.Boundary
 
         public void TurnOn(int pwr)
         {
-            double power = (pwr*100)/ 700; //Transforms power in watts to power in procents.
+            double power = Convert.ToDouble(pwr)*100/ 700; //Transforms power in watts to power in procents.
             if (power < 1 || 100 < power)
             {
                 throw new ArgumentOutOfRangeException("power", power, "Must be between 1 and 100 % (incl.)");
