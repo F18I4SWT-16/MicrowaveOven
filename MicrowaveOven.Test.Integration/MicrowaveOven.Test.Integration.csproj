@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="IT1_UserInterface_Buttons.cs" />
     <Compile Include="IT2_UserInterface_Door.cs" />
+    <Compile Include="IT3_CookController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
