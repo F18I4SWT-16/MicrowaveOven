@@ -72,7 +72,7 @@ namespace MicrowaveOven.Test.Integration
             _timeButton.Press();
             _startCancelButton.Press();
 
-            Thread.Sleep(60100); //Vent i 60.1s
+            Thread.Sleep(61000); //Vent i 61s
 
             //Assert
             _output.Received().OutputLine($"Display cleared");
