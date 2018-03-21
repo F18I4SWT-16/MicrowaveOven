@@ -58,6 +58,13 @@
   <ItemGroup>
     <Compile Include="IT1_UserInterface_Buttons.cs" />
     <Compile Include="IT2_UserInterface_Door.cs" />
+    <Compile Include="IT3_CookController.cs" />
+    <Compile Include="IT4_Display_CookController.cs" />
+    <Compile Include="IT4_Display_UserInterface.cs" />
+    <Compile Include="IT5_Light.cs" />
+    <Compile Include="IT6_Timer.cs" />
+    <Compile Include="IT7_Powertube.cs" />
+    <Compile Include="IT8_Output.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
